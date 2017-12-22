@@ -320,11 +320,11 @@
           
             <h2 id="LMDB"><a href="#LMDB" class="headerlink" title="LMDB"></a>LMDB</h2><hr>
 <p>深度学习经常会需要处理图片文件,图片文件因为格式大小等因素差异多多,需要统一处理成神经网络所需要的输入形式。Caffe中将图片文件处理成LMDB或者LevelDB格式，它们都是键/值对（Key/Value Pair）嵌入式数据库管理系统编程库。</p>
-<p><a href="http://www.lmdb.tech/doc/" target="_blank" rel="noopener">LMDB</a>全称为Lightning Memory-Mapped Database Manager。它有着出色的IO性能，并且十分适合处理大规模的数据。LMDB的内存消耗是LevelDB的1.1倍，但是速度比后者快10%到15%，并且支持多种训练模型同时读取同一组数据集，是Caffe中默认的数据处理格式。</p>
+<p><a href="http://www.lmdb.tech/doc/" target="_blank" rel="noopener">LMDB</a>全称为Lightning Memory-Mapped Database Manager。它有着出色的IO性能，并且十分适合处理大规模的数据。LMDB的内存消耗是LevelDB的1.1倍，但是速度比后者快10%到15%，并且支持多种训练模型同时读取同一组数据集，是Caffe中默认的数据处理格式。</p>
 <blockquote>
 <p>LMDB is a Btree-based database management library modeled loosely on the BerkeleyDB API, but much simplified. The entire database is exposed in a memory map, and all data fetches return data directly from the mapped memory, so no malloc’s or memcpy’s occur during data fetches. As such, the library is extremely simple because it requires no page caching layer of its own, and it is extremely high performance and memory-efficient.</p>
 </blockquote>
-<h2 id="生成Mnist数据集的LMDB文件"><a href="#生成Mnist数据集的LMDB文件" class="headerlink" title="生成Mnist数据集的LMDB文件"></a>生成Mnist数据集的LMDB文件</h2><hr>
+<h2 id="生成Mnist数据集的LMDB文件"><a href="#生成Mnist数据集的LMDB文件" class="headerlink" title="生成Mnist数据集的LMDB文件"></a>生成Mnist数据集的LMDB文件</h2><hr>
 <p>我们先看一下<a href="http://caffe.berkeleyvision.org/gathered/examples/mnist.html" target="_blank" rel="noopener">Caffe官网上</a>是如何创建Mnist数据集的LMDB文件的。</p>
 <pre><code>cd $CAFFE_ROOT
 ./data/mnist/get_mnist.sh
@@ -435,9 +435,9 @@ echo &quot;Done.&quot;
 <ul>
 <li><p>将train.txt和val.txt放在DATA路径下,或者自己在create_imagenet.sh中修改路径，保证create_imagenet.sh可以找到txt文件。</p>
 </li>
-<li><p>TRAIN_DATA_ROOT和VAL_DATA_ROOT可以相同，即所有的图片数据可以放在一个文件夹中。这也是推荐的做法，处理起来更加方便。</p>
+<li><p>TRAIN_DATA_ROOT和VAL_DATA_ROOT可以相同，即所有的图片数据可以放在一个文件夹中。这也是推荐的做法，处理起来更加方便。</p>
 </li>
-<li><p>TRAIN_DATA_ROOT和VAL_DATA_ROOT最后的反斜杠/不可以少。如果非要删除的话，需要在train.txt和val.txt文件中的每个图片文件名前添加一个反斜杠/。否则图片路径会不正确，无法读取图片。</p>
+<li><p>TRAIN_DATA_ROOT和VAL_DATA_ROOT最后的反斜杠/不可以少。如果非要删除的话，需要在train.txt和val.txt文件中的每个图片文件名前添加一个反斜杠/。否则图片路径会不正确，无法读取图片。</p>
 </li>
 <li><p>实际情况我们不仅需要训练集和验证集，还需要测试集。我选择的图片划分比例是train:test:val=7:2:1。我们可以添加生成测试集LMDB的命令，照猫画虎即可。</p>
 </li>
@@ -459,7 +459,7 @@ class GenerateTxts(object):
         # 图片文件夹的路径
         self.pic_dir_path=pic_dir_path
 
-        # 类别列表，元素是str，如[&apos;0&apos;,&apos;1&apos;,...,&apos;9&apos;]
+        # 类别列表，元素是str，如[&apos;0&apos;,&apos;1&apos;,...,&apos;9&apos;]
         self.classes=classes
 
         # 保存txt的文件夹路径
@@ -479,7 +479,7 @@ class GenerateTxts(object):
         if os.path.exists(self.val_txt_save_path):
             os.remove(self.val_txt_save_path)
 
-        # 产生txt文件
+        # 产生txt文件
         self.generate_txts()
 
     def generate_txts(self):
@@ -494,7 +494,7 @@ class GenerateTxts(object):
         # 将图片划分到对应的类别
         for name_cnt, name in enumerate(pic_names):
             # 这里默认文件名中信息以_分割，第一个信息是图片所属类别
-            # 如3_xxx.png表示3的图片，xxx用来和其他3的图片区分开
+            # 如3_xxx.png表示3的图片，xxx用来和其他3的图片区分开
             char = name.split(&apos;_&apos;)[0]
             char_index = classes.index(char)
             index_set[char_index].append(name)
