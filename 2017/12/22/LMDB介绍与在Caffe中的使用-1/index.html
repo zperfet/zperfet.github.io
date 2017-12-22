@@ -94,7 +94,7 @@
 <meta property="og:site_name" content="zperfet&#39;s blog">
 <meta property="og:description" content="LMDB 深度学习经常会需要处理图片文件,图片文件因为格式大小等因素差异多多,需要统一处理成神经网络所需要的输入形式。Caffe中将图片文件处理成LMDB或者LevelDB格式，它们都是键/值对（Key/Value Pair）嵌入式数据库管理系统编程库。 LMDB全称为Lightning Memory-Mapped Database Manager。它有着出色的IO性能，并且十分适合处理大规模的">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-12-21T16:44:21.924Z">
+<meta property="og:updated_time" content="2017-12-22T05:01:11.391Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LMDB介绍与在Caffe中的使用">
 <meta name="twitter:description" content="LMDB 深度学习经常会需要处理图片文件,图片文件因为格式大小等因素差异多多,需要统一处理成神经网络所需要的输入形式。Caffe中将图片文件处理成LMDB或者LevelDB格式，它们都是键/值对（Key/Value Pair）嵌入式数据库管理系统编程库。 LMDB全称为Lightning Memory-Mapped Database Manager。它有着出色的IO性能，并且十分适合处理大规模的">
@@ -369,9 +369,9 @@ echo &quot;Done.&quot;
 <li><p>rm -rf这两句用来删除可能存在的李LMDB文件，如果已   存在同名的LMDB文件而又没有删除，程序会报错。</p>
 </li>
 </ul>
-<p>这样就生成了Mnist数据集的LMDB文件,参照<a href="http://caffe.berkeleyvision.org/gathered/examples/mnist.html" target="_blank" rel="noopener">官网教程</a>可以调用Lenet网络开始训练Mnist数据集，这里不再赘述。</p>
+<p>这样就生成了Mnist数据集的LMDB文件,参照<a href="http://caffe.berkeleyvision.org/gathered/examples/mnist.html" target="_blank" rel="noopener">官网教程</a>可以调用Lenet网络开始训练Mnist数据集，这里不再赘述。</p>
 <h2 id="生成图片数据的LMDB文件"><a href="#生成图片数据的LMDB文件" class="headerlink" title="生成图片数据的LMDB文件"></a>生成图片数据的LMDB文件</h2><hr>
-<p>如何生成我们自己图片的LMDB文件呢？这里我们参照Caffe自带的CAFFE_ROOT/examples/imagenet/create_imagenet.sh</p>
+<p>那么如何生成我们自己图片的LMDB文件呢？这里我们可以参照Caffe自带的CAFFE_ROOT/examples/imagenet/create_imagenet.sh</p>
 <pre><code>#!/usr/bin/env sh
 # Create the imagenet lmdb inputs
 # N.B. set the path to the imagenet train + val data dirs

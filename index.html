@@ -370,9 +370,9 @@ echo &quot;Done.&quot;
 <li><p>rm -rf这两句用来删除可能存在的李LMDB文件，如果已   存在同名的LMDB文件而又没有删除，程序会报错。</p>
 </li>
 </ul>
-<p>这样就生成了Mnist数据集的LMDB文件,参照<a href="http://caffe.berkeleyvision.org/gathered/examples/mnist.html" target="_blank" rel="noopener">官网教程</a>可以调用Lenet网络开始训练Mnist数据集，这里不再赘述。</p>
+<p>这样就生成了Mnist数据集的LMDB文件,参照<a href="http://caffe.berkeleyvision.org/gathered/examples/mnist.html" target="_blank" rel="noopener">官网教程</a>可以调用Lenet网络开始训练Mnist数据集，这里不再赘述。</p>
 <h2 id="生成图片数据的LMDB文件"><a href="#生成图片数据的LMDB文件" class="headerlink" title="生成图片数据的LMDB文件"></a>生成图片数据的LMDB文件</h2><hr>
-<p>如何生成我们自己图片的LMDB文件呢？这里我们参照Caffe自带的CAFFE_ROOT/examples/imagenet/create_imagenet.sh</p>
+<p>那么如何生成我们自己图片的LMDB文件呢？这里我们可以参照Caffe自带的CAFFE_ROOT/examples/imagenet/create_imagenet.sh</p>
 <pre><code>#!/usr/bin/env sh
 # Create the imagenet lmdb inputs
 # N.B. set the path to the imagenet train + val data dirs
