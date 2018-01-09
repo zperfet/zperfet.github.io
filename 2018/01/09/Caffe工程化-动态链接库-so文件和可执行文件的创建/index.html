@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="zperfet&#39;s blog">
 <meta property="og:description" content="概述Caffe中自带classification.cpp用于分类，通过传递deploy.prototxt、network.caffemodel、mean.binaryproto、labels.txt和img.jpg，可以利用训练好的模型来预测新的图片。但是如果部署到实际中，classification.cpp是几乎一定需要修改的:  A simple C++ code is proposed in">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-09T05:23:52.370Z">
+<meta property="og:updated_time" content="2018-01-09T05:31:23.275Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Caffe工程化:动态链接库.so文件和可执行文件的创建">
 <meta name="twitter:description" content="概述Caffe中自带classification.cpp用于分类，通过传递deploy.prototxt、network.caffemodel、mean.binaryproto、labels.txt和img.jpg，可以利用训练好的模型来预测新的图片。但是如果部署到实际中，classification.cpp是几乎一定需要修改的:  A simple C++ code is proposed in">
@@ -317,7 +317,7 @@ cmake .. -DBUILD_SHARED_LIB=ON
 <blockquote>
 <p>from opencv/build/ copy OpencvConfig.cmake and OpenCVModules.cmake to opencv/cmake/<br>then in you project delete file build and run again cmake .. and make</p>
 </blockquote>
-<p>具体操作为</p>
+<p>即为</p>
 <ul>
 <li>将opencv/build下的OpencvConfig.cmake和OpenCVModules.cmake拷贝到opencv/cmake/</li>
 <li>删除cmake_buid文件夹，再从头开始</li>
@@ -402,7 +402,7 @@ cmake .. -DBUILD_SHARED_LIB=ON
 <blockquote>
 <p>sudo apt-get install cmake-curses-gui</p>
 </blockquote>
-<p>那解决方案2呢？我们可以看到这里使用ccmake也只是在make之前将CUDA_USE_STATIC_CUDA_RUNTIME从ON修改为OFF。更简单的方法是直接打开CMakeCache.txt文件，将CUDA_USE_STATIC_CUDA_RUNTIME从ON修改为OFF，再继续make即可。后面应该可以成功make完到100%了。</p>
+<p>那解决方案2呢？我们可以看到这里使用ccmake也只是在make之前将CUDA_USE_STATIC_CUDA_RUNTIME从ON修改为OFF。更简单的方法是直接打开CMakeCache.txt文件，将CUDA_USE_STATIC_CUDA_RUNTIME从ON修改为OFF，再继续make即可。后面我没有碰到其他问题，成功make到100%。</p>
 <h2 id="CMakeLists范例"><a href="#CMakeLists范例" class="headerlink" title="CMakeLists范例"></a>CMakeLists范例</h2><p>完成上述配置后，我们就可以直接将我们的CMakeLists.txt写成类似下面的样子：</p>
 <pre><code>cmake_minimum_required(VERSION 2.8.8)
 
